@@ -1,12 +1,28 @@
-/* RayZ__Tv — correctif du chemin image pour Gamepad Viewer */
+/* RayZ__Tv - recalage V3 d'apres capture du 08/10/2026 */
+/* Garde l'image actuelle en ligne. Charger avec ?p=1&s=1&editcss=... */
 .controller.edit {
-  background-image: url("https://raw.githubusercontent.com/mrrayz62-rgb/RayZ-Tv-Skin/main/rayz-tv-final.png") !important;
+  background-image: url('https://mrrayz62-rgb.github.io/RayZ-Tv-Skin/rayz-tv-final.png?v=3') !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 100% !important;
 }
+/* Les deplacements sont approximatifs, mesures sur la capture utilisateur. */
+/* Sticks: garder les mouvements de GPV; n'ajuster que leur point de depart. */
+.controller.edit .stick.left { margin-left: 23px !important; margin-top: -28px !important; }
+.controller.edit .stick.right { margin-left: 8px !important; margin-top: -35px !important; }
+/* Boutons ABXY: faire coincider les lettres avec celles du skin. */
+.controller.edit .abxy { transform: translate(-15px, -13px) !important; }
+/* Ne plus afficher la surcouche blanche des gachettes: garder un indicateur colore. */
+.controller.edit .trigger {
+  background-image: none !important;
+  background-color: #00baff !important;
+  mix-blend-mode: screen !important;
+  border-radius: 10px;
+}
+.controller.edit .trigger.right { background-color: #aa37ff !important; }
+/* Ne jamais forcer l'opacite ici: GPV gere lui-meme les changements. */
 .controller.edit .button.pressed,
 .controller.edit .bumper.pressed,
-.controller.edit .trigger.pressed {
-  filter: brightness(1.15) drop-shadow(0 0 6px rgba(39,202,255,.75));
+.controller.edit .face.pressed {
+  filter: brightness(1.2) drop-shadow(0 0 5px #20bfff);
 }
