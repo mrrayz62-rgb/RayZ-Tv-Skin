@@ -1,28 +1,69 @@
-/* RayZ__Tv - recalage V3 d'apres capture du 08/10/2026 */
-/* Garde l'image actuelle en ligne. Charger avec ?p=1&s=1&editcss=... */
-.controller.edit {
-  background-image: url('https://mrrayz62-rgb.github.io/RayZ-Tv-Skin/rayz-tv-final.png?v=3') !important;
-  background-repeat: no-repeat !important;
-  background-position: center center !important;
-  background-size: 100% 100% !important;
+/* RayZ__Tv - réalignement Gamepad Viewer */
+/* À héberger dans le dépôt avec rayz-tv-final.png */
+/* Lien de test : https://gamepadviewer.com/?p=1&s=1&editcss=https://mrrayz62-rgb.github.io/RayZ-Tv-Skin/style.css */
+
+.controller.edit{
+  background: url("https://mrrayz62-rgb.github.io/RayZ-Tv-Skin/rayz-tv-final.png") center center / 100% 100% no-repeat !important;
 }
-/* Les deplacements sont approximatifs, mesures sur la capture utilisateur. */
-/* Sticks: garder les mouvements de GPV; n'ajuster que leur point de depart. */
-.controller.edit .stick.left { margin-left: 23px !important; margin-top: -28px !important; }
-.controller.edit .stick.right { margin-left: 8px !important; margin-top: -35px !important; }
-/* Boutons ABXY: faire coincider les lettres avec celles du skin. */
-.controller.edit .abxy { transform: translate(-15px, -13px) !important; }
-/* Ne plus afficher la surcouche blanche des gachettes: garder un indicateur colore. */
-.controller.edit .trigger {
-  background-image: none !important;
-  background-color: #00baff !important;
-  mix-blend-mode: screen !important;
-  border-radius: 10px;
+
+/* On retire les sticks visuels de GPV pour garder seulement les trous/rings du skin */
+.edit .stick{
+  opacity: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
 }
-.controller.edit .trigger.right { background-color: #aa37ff !important; }
-/* Ne jamais forcer l'opacite ici: GPV gere lui-meme les changements. */
-.controller.edit .button.pressed,
-.controller.edit .bumper.pressed,
-.controller.edit .face.pressed {
-  filter: brightness(1.2) drop-shadow(0 0 5px #20bfff);
+.edit .stick.pressed{
+  opacity: 0 !important;
+}
+
+/* Recalage de la zone ABXY */
+.edit .abxy{
+  position: absolute !important;
+  top: 178px !important;
+  left: 468px !important;
+  width: 152px !important;
+  height: 156px !important;
+}
+.edit .button{
+  position: absolute !important;
+  width: 48px !important;
+  height: 48px !important;
+}
+.edit .button.pressed{
+  margin-top: 0 !important;
+  transform: scale(1.08) !important;
+  filter: brightness(1.12) drop-shadow(0 0 5px rgba(255,255,255,.35));
+}
+.edit .a{ top: 108px !important; left: 55px !important; }
+.edit .b{ top: 58px !important; right: 0px !important; }
+.edit .x{ top: 58px !important; left: 4px !important; }
+.edit .y{ top: 7px !important; left: 55px !important; }
+
+/* Recalage croix directionnelle */
+.edit .dpad{
+  position: absolute !important;
+  width: 110px !important;
+  height: 111px !important;
+  top: 302px !important;
+  left: 212px !important;
+}
+.edit .face{
+  position: absolute !important;
+}
+.edit .face.pressed{
+  filter: brightness(1.12);
+}
+.edit .face.up{ left: 38px !important; top: 0px !important; width: 34px !important; height: 33px !important; }
+.edit .face.down{ left: 38px !important; top: 78px !important; width: 34px !important; height: 33px !important; }
+.edit .face.left{ left: 0px !important; top: 38px !important; width: 33px !important; height: 34px !important; }
+.edit .face.right{ right: 0px !important; top: 38px !important; width: 33px !important; height: 34px !important; }
+
+/* Recalage des petits boutons centraux */
+.edit .back, .edit .start, .edit .misc{
+  transform: scale(0.95) !important;
+}
+
+/* Gâchettes / bumpers : on ne les recolore pas, on laisse GPV gérer */
+.edit .trigger, .edit .bumper{
+  opacity: 1 !important;
 }
