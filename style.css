@@ -1,18 +1,12 @@
-/* RayZ__Tv - Gamepad Viewer custom CSS */
-/* Mets ce fichier ET rayz-tv-final.png dans le même dossier GitHub Pages */
-/* Utilisation : https://gamepadviewer.com/?p=1&editcss=URL_DE_STYLE.CSS */
-
+/* RayZ__Tv — correctif du chemin image pour Gamepad Viewer */
 .controller.edit {
-  background-image: url("./rayz-tv-final.png") !important;
+  background-image: url("https://raw.githubusercontent.com/mrrayz62-rgb/RayZ-Tv-Skin/main/rayz-tv-final.png") !important;
   background-repeat: no-repeat !important;
   background-position: center center !important;
   background-size: 100% 100% !important;
 }
-
-/* Petit glow quand tu appuies */
 .controller.edit .button.pressed,
 .controller.edit .bumper.pressed,
-.controller.edit .trigger.pressed,
-.controller.edit .stick.pressed {
-  filter: brightness(1.15) drop-shadow(0 0 6px rgba(39, 202, 255, 0.75));
+.controller.edit .trigger.pressed {
+  filter: brightness(1.15) drop-shadow(0 0 6px rgba(39,202,255,.75));
 }
